@@ -18,6 +18,16 @@ export class UserService {
   }
 
   updatePassword(userId: number, body: any): Observable<any> {
+    delete body.confirmedPassword;
     return this.apiService.put(`/users/${userId}/password`, body);
+  }
+
+  register(body: any): Observable<any> {
+    delete body.confirmedPassword;
+    return this.apiService.post('/registration', body);
+  }
+
+  verifyRegistration(token: string): Observable<any> {
+    return this.apiService.post(`/registration/confirmation?token=${token}`, null)
   }
 }

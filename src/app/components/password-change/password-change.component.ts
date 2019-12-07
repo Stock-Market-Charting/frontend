@@ -38,7 +38,7 @@ export class PasswordChangeComponent implements OnInit {
 
     if (this.passwordForm.invalid) return;
 
-    this.userService.updatePassword(this.userId, {password: this.passwordForm.value.password})
+    this.userService.updatePassword(this.userId, this.passwordForm.value)
       .subscribe(res => {
         let messageType = 'success';
         if (res.code == 0) {

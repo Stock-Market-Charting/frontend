@@ -40,8 +40,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(val.username, val.password)
       .subscribe(
         res => {
-          this.authService.setSession(res);
-          this.router.navigateByUrl('/index');
+          if (res.code == 0) {
+            this.authService.setSession(res);
+            this.router.navigateByUrl('/index');
+          } else  {
+            this.alertService.alert("error", res.message)
+          }
         },
         error => {
           if (error.status == 401) {

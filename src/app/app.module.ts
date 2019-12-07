@@ -18,6 +18,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { HeaderModule } from './components/header/header.module';
+import { AccountVerificationComponent } from './components/account-verification/account-verification.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HeaderModule } from './components/header/header.module';
     LandingComponent,
     AlertComponent,
     UserProfileComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    AccountVerificationComponent
   ],
   imports: [
     BrowserModule,
