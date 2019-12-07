@@ -18,7 +18,7 @@ export class UserProfileComponent implements OnInit {
   @Input() public user: User;
 
   constructor(
-    public activeModal: NgbActiveModal, 
+    private activeModal: NgbActiveModal, 
     private fb: FormBuilder,
     private userService: UserService,
     private alterService: AlertService

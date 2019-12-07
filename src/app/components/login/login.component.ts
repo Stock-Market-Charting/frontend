@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { AlertService } from 'src/app/services/alert.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {
@@ -35,9 +38,17 @@ export class LoginComponent implements OnInit {
 
     const val = this.loginForm.value;
     this.authService.login(val.username, val.password)
-      .subscribe(() => {
-        this.router.navigateByUrl('/index');
-      });
+      .subscribe(
+        res => {
+          this.authService.setSession(res);
+          this.router.navigateByUrl('/index');
+        },
+        error => {
+          if (error.status == 401) {
+            this.alertService.alert("error", "Incorrect username or password")
+          }
+        }
+      );
   }
 
   get f() { return this.loginForm.controls }

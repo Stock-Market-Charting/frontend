@@ -16,6 +16,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { PasswordChangeComponent } from './components/password-change/password-change.component';
+import { HeaderModule } from './components/header/header.module';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,9 @@ import { LandingComponent } from './components/landing/landing.component';
     LoginComponent,
     SignupComponent,
     LandingComponent,
+    AlertComponent,
     UserProfileComponent,
-    AlertComponent
+    PasswordChangeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { LandingComponent } from './components/landing/landing.component';
     HttpClientModule,
     NgbModule,
     AppRoutingModule,
-    MainRoutingModule
+    MainRoutingModule,
+    HeaderModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [ AppComponent ],

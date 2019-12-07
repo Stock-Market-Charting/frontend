@@ -16,4 +16,8 @@ export class UserService {
   updateProfile(userId: number, body: any): Observable<any> {
     return this.apiService.put(`/users/${userId}/profiles`, body);
   }
+
+  updatePassword(userId: number, body: any): Observable<any> {
+    return this.apiService.put(`/users/${userId}/password`, body);
+  }
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/User';
-import { ResponseResult } from 'src/app/models/ResponseResult';
+import { PasswordChangeComponent } from '../password-change/password-change.component';
 
 @Component({
   selector: 'app-header',
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
-  open() {
+  openUserProfile() {
     this.userService.getUser(this.authService.getUserId())
       .subscribe((res) => {
         if (res.code == 0) {
@@ -39,6 +39,11 @@ export class HeaderComponent implements OnInit {
           modalRef.componentInstance.user = res.data as User;
         }
       });
+  }
+
+  openPasswordChange() {
+    const modalRef = this.modalService.open(PasswordChangeComponent);
+    modalRef.componentInstance.userId = this.authService.getUserId();
   }
 
 }

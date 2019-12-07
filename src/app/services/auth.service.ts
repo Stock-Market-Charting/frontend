@@ -3,6 +3,7 @@ import * as moment from 'moment';
 import { ApiService } from './api.service';
 import { tap } from 'rxjs/operators';
 import { ResponseResult } from '../models/ResponseResult';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,8 @@ export class AuthService {
 
   constructor(private apiService: ApiService) { }
 
-  login(username:string, password:string) {
-    return this.apiService.post('/login', {"username": username, "password": password})
-      .pipe(
-        tap(
-          (result: any) => this.setSession(result),
-          error => console.log(error)
-        )
-      )
+  login(username:string, password:string): Observable<any> {
+    return this.apiService.post('/login', {username: username, password: password})
   }
 
   logout() {
@@ -64,8 +59,7 @@ export class AuthService {
     return moment(expiresAt);
   } 
 
-  private setSession(result: ResponseResult) {
-    console.log(result);
+  public setSession(result: ResponseResult) {
     if (result.code == 0) {
       const token = result.data.Authorization;
       const tokenDecoded = this.parseJwt(token);

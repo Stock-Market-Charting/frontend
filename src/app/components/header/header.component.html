@@ -16,7 +16,8 @@
             <button ngbDropdownItem (click)="logout()">Logout!</button> -->
 
             <div *ngIf="authService.isRole('USER')">
-                <button ngbDropdownItem (click)="open()">Update Profile</button>
+                <button ngbDropdownItem (click)="openUserProfile()">Update Profile</button>
+                <button ngbDropdownItem (click)="openPasswordChange()">Change password</button>
                 <div class="dropdown-divider"></div>
             </div>
             <button ngbDropdownItem (click)="logout()">Logout</button>
