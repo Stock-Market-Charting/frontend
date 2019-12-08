@@ -19,6 +19,9 @@ import { LandingComponent } from './components/landing/landing.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { HeaderModule } from './components/header/header.module';
 import { AccountVerificationComponent } from './components/account-verification/account-verification.component';
+import { StockExchangeComponent } from './components/stock-exchange/stock-exchange.component';
+import { StockExchangeDetailsComponent } from './components/stock-exchange/stock-exchange-details/stock-exchange-details.component';
+import { StockExchangeModule } from './components//stock-exchange/stock-exchange.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { AccountVerificationComponent } from './components/account-verification/
     AlertComponent,
     UserProfileComponent,
     PasswordChangeComponent,
-    AccountVerificationComponent
+    AccountVerificationComponent,
+    StockExchangeComponent,
+    StockExchangeDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { AccountVerificationComponent } from './components/account-verification/
     NgbModule,
     AppRoutingModule,
     MainRoutingModule,
-    HeaderModule
+    HeaderModule,
+    StockExchangeModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [ AppComponent ],

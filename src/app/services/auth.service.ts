@@ -10,10 +10,12 @@ import { Observable, of } from 'rxjs';
 })
 export class AuthService {
 
+  private baseUrl = '/user-service/api/v1';
+
   constructor(private apiService: ApiService) { }
 
   login(username:string, password:string): Observable<any> {
-    return this.apiService.post('/login', {username: username, password: password})
+    return this.apiService.post(`${this.baseUrl}/login`, {username: username, password: password})
   }
 
   logout() {

@@ -8,7 +8,7 @@ import { ResponseResult } from '../models/ResponseResult';
 export class ApiService {
 
   // private baseUrl = 'http://localhost:8080';
-  private baseUrl = '/api/v1';
+  // private baseUrl = '/api/v1';
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   private composeUrl(url: string): string {
-    return `${this.baseUrl}${url}`;
-    // return url;
+    // return `${this.baseUrl}${url}`;
+    return url;
   }
 }

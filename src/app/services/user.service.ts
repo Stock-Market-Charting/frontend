@@ -7,27 +7,29 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
+  private baseUrl = '/user-service/api/v1';
+
   constructor(private apiService: ApiService) { }
 
   getUser(userId: number): Observable<any> {
-    return this.apiService.get(`/users/${userId}`);
+    return this.apiService.get(`${this.baseUrl}/users/${userId}`);
   }
 
   updateProfile(userId: number, body: any): Observable<any> {
-    return this.apiService.put(`/users/${userId}/profiles`, body);
+    return this.apiService.put(`${this.baseUrl}/users/${userId}/profiles`, body);
   }
 
   updatePassword(userId: number, body: any): Observable<any> {
     delete body.confirmedPassword;
-    return this.apiService.put(`/users/${userId}/password`, body);
+    return this.apiService.put(`${this.baseUrl}/users/${userId}/password`, body);
   }
 
   register(body: any): Observable<any> {
     delete body.confirmedPassword;
-    return this.apiService.post('/registration', body);
+    return this.apiService.post(`${this.baseUrl}/registration`, body);
   }
 
   verifyRegistration(token: string): Observable<any> {
-    return this.apiService.post(`/registration/confirmation?token=${token}`, null)
+    return this.apiService.post(`${this.baseUrl}/registration/confirmation?token=${token}`, null)
   }
 }
