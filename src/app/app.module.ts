@@ -22,6 +22,12 @@ import { AccountVerificationComponent } from './components/account-verification/
 import { StockExchangeComponent } from './components/stock-exchange/stock-exchange.component';
 import { StockExchangeDetailsComponent } from './components/stock-exchange/stock-exchange-details/stock-exchange-details.component';
 import { StockExchangeModule } from './components//stock-exchange/stock-exchange.module';
+import { CompanyComponent } from './components/company/company.component';
+import { CompanyDetailsComponent } from './components/company/company-details/company-details.component'
+import { CompanyModule } from './components/company/company.module';
+import { SectorComponent } from './components/sector/sector.component';
+import { SectorDetailsComponent } from './components/sector/sector-details/sector-details.component';
+import { SectorModule } from './components/sector/sector.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +42,11 @@ import { StockExchangeModule } from './components//stock-exchange/stock-exchange
     PasswordChangeComponent,
     AccountVerificationComponent,
     StockExchangeComponent,
-    StockExchangeDetailsComponent
+    StockExchangeDetailsComponent,
+    CompanyComponent,
+    CompanyDetailsComponent,
+    SectorComponent,
+    SectorDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +57,9 @@ import { StockExchangeModule } from './components//stock-exchange/stock-exchange
     AppRoutingModule,
     MainRoutingModule,
     HeaderModule,
-    StockExchangeModule
+    StockExchangeModule,
+    CompanyModule,
+    SectorModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [ AppComponent ],

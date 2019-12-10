@@ -1,4 +1,4 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 export class CustomValidators {
     static passwordMatchValidator(control: AbstractControl) {
@@ -8,5 +8,14 @@ export class CustomValidators {
         if (password !== confirmedPassword) {
             control.get('confirmedPassword').setErrors({ matched: true });
         }
+    }
+
+    static multiselectRequired(control: AbstractControl): ValidationErrors|null {
+        const items: any[] = control.value;
+
+        if (!Array.isArray(items) || items.length == 0) {
+            return { required: true};
+        }
+        return null;
     }
 }

@@ -41,10 +41,7 @@ export class StockExchangeComponent implements OnInit {
   open(stockExchange) {
     console.log(stockExchange);
     const modalRef = this.modalService.open(StockExchangeDetailsComponent);
-    
-    // if (stockExchange != null) {
-      modalRef.componentInstance.stockExchange = stockExchange as StockExchange;
-    // }
+    modalRef.componentInstance.stockExchange = stockExchange as StockExchange;
 
     modalRef.componentInstance.notifyParent.subscribe(result => {
       if (result == 'success') this.getList()}

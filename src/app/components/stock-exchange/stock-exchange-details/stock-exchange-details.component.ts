@@ -27,7 +27,6 @@ export class StockExchangeDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(`modal ${this.stockExchange}`);
     this.seForm = this.fb.group({
       stockExchange: [this.stockExchange === null ? '' : this.stockExchange.stockExchange, [Validators.required]],
       brief: [this.stockExchange === null ? '' : this.stockExchange.brief, [Validators.required]],
