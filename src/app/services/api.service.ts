@@ -16,6 +16,10 @@ export class ApiService {
     return this.http.get(this.composeUrl(url));
   }
 
+  download(url: string) {
+    return this.http.get(this.composeUrl(url), {responseType: 'blob'});
+  }
+
   post(url: string, body: any) {
     return this.http.post(this.composeUrl(url), body);
   }

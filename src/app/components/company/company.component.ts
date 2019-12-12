@@ -4,6 +4,7 @@ import { CompanyService } from 'src/app/services/company.service';
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { StockExchangeService } from 'src/app/services/stock-exchange.service';
 import { SectorService } from 'src/app/services/sector.service';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'company',
@@ -22,7 +23,8 @@ export class CompanyComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private companyService: CompanyService,
-    private sectorService: SectorService
+    private sectorService: SectorService,
+    private alertService: AlertService
     // private seService: StockExchangeService
   ) { }
 
@@ -54,7 +56,24 @@ export class CompanyComponent implements OnInit {
         })
       }
     })
+  }
 
+  activate(company) {
+    this.companyService.updateStatus(company.id, true).subscribe(res => {
+      if (res.code == 0) {
+        this.alertService.alert('success', `${company.companyName} is activated.`);
+        this.getList();
+      }
+    })
+  }
+
+  deactivate(company) {
+    this.companyService.updateStatus(company.id, false).subscribe(res => {
+      if (res.code == 0) {
+        this.alertService.alert('success', `${company.companyName} is deactivated.`);
+        this.getList();
+      }
+    })
   }
 
 }

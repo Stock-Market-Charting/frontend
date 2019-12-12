@@ -18,7 +18,9 @@
             <td>${{c.turnover}}</td>
             <td>{{c.brief}}</td>
             <td>
-                <button class="btn btn-outline-primary" (click)="open(c)"><i class="fa fa-edit fa-fw"></i>Edit</button>
+                <button class="btn btn-outline-primary mr-2" (click)="open(c)"><i class="fa fa-edit fa-fw"></i>Edit</button>
+                <button *ngIf="!c.active" class="btn btn-outline-primary" (click)="activate(c)"><i class="fa fa-edit fa-fw"></i>Activate</button>
+                <button *ngIf="c.active" class="btn btn-outline-primary" (click)="deactivate(c)"><i class="fa fa-edit fa-fw"></i>Deactivate</button>
             </td>
         </tr>
     </tbody>

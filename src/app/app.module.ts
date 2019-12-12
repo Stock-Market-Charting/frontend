@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 /** ng-bootstrap */
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbDateAdapter, NgbDateNativeAdapter } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +28,10 @@ import { CompanyModule } from './components/company/company.module';
 import { SectorComponent } from './components/sector/sector.component';
 import { SectorDetailsComponent } from './components/sector/sector-details/sector-details.component';
 import { SectorModule } from './components/sector/sector.module';
+import { IpoComponent } from './components/ipo/ipo.component';
+import { IpoDetailsComponent } from './components/ipo/ipo-details/ipo-details.component';
+import { IpoModule } from './components/ipo/ipo.module';
+import { StockPriceComponent } from './components/stock-price/stock-price.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,10 @@ import { SectorModule } from './components/sector/sector.module';
     CompanyComponent,
     CompanyDetailsComponent,
     SectorComponent,
-    SectorDetailsComponent
+    SectorDetailsComponent,
+    IpoComponent,
+    IpoDetailsComponent,
+    StockPriceComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +66,13 @@ import { SectorModule } from './components/sector/sector.module';
     HeaderModule,
     StockExchangeModule,
     CompanyModule,
-    SectorModule
+    SectorModule,
+    IpoModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: NgbDateAdapter, useClass: NgbDateNativeAdapter }
+  ],
   bootstrap: [ AppComponent ],
   entryComponents: [AlertComponent]
 })

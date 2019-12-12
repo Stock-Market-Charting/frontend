@@ -4,6 +4,7 @@
         <div *ngIf="authService.isRole('ADMIN')">
             <ngb-tab title="Import Data">
                 <ng-template ngbTabContent>
+                    <stock-price></stock-price>
                 </ng-template>
             </ngb-tab>
 
@@ -27,6 +28,7 @@
 
             <ngb-tab title="Update IPO Details">
                 <ng-template ngbTabContent>
+                    <ipo></ipo>
                 </ng-template>
             </ngb-tab>
         </div>

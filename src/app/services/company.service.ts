@@ -25,4 +25,8 @@ export class CompanyService {
   update(id: number, body: any): Observable<any> {
     return this.apiService.put(`${this.baseUrl}/${id}`, body);
   }
+
+  updateStatus(id: number, active: boolean): Observable<any> {
+    return this.apiService.put(`${this.baseUrl}/${id}/activation?active=${active}`, null);
+  }
 }

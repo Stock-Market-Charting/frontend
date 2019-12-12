@@ -1,0 +1,16 @@
+<div class="mt-3">
+    <div *ngIf="uploaded">
+        <h4>Import Excel</h4>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Select Excel file to be uploaded</label>
+        </div>
+        <a routerLink="" (click)="downloadTemplate('STOCK_PRICE_TEMPLATE.xlsx')" >Click here to download sample Excel file</a>
+    </div>
+
+    <div *ngIf="!uploaded">
+        <h4>Summary of Upload</h4>
+        <button (click)="uploaded = true">OK</button>
+    </div>
+
+</div>
