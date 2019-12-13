@@ -27,7 +27,6 @@ export class StockExchangeComponent implements OnInit {
   }
 
   getList() {
-    console.log(`getList: page=${this.page}; pageSize=${this.pageSize}`);
     this.seService.getList(this.page - 1, this.pageSize)
       .subscribe(res => {
         if (res.code == 0) {

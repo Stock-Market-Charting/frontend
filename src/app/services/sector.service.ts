@@ -12,7 +12,7 @@ export class SectorService {
   constructor(private apiService: ApiService) { }
 
   getList(page: number, size: number): Observable<any> {
-    return this.apiService.get(`${this.baseUrl}`);
+    return this.apiService.get(`${this.baseUrl}?page=${page}&size=${size}`);
   }
 
   create(body: any): Observable<any> {

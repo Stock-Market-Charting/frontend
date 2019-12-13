@@ -11,7 +11,17 @@ export class StockPriceService {
 
   constructor(private apiService: ApiService) { }
 
+  getList(page: number, size: number): Observable<any> {
+    return this.apiService.get(`${this.baseUrl}?page=${page}&size=${size}`);
+  }
+
   downloadTemplate(filename): Observable<any> {
     return this.apiService.download(`${this.baseUrl}/templates?filename=${filename}`)
+  }
+
+  upload(file): Observable<any> {
+    let formData = new FormData();
+    formData.append('file', file, file.name);
+    return this.apiService.post(`${this.baseUrl}/upload`, formData);
   }
 }
