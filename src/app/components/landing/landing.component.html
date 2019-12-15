@@ -36,18 +36,20 @@
         <div *ngIf="authService.isRole('USER')">
             <ngb-tab title="IPOs">
                 <ng-template ngbTabContent>
+                    <ipo-future></ipo-future>
                 </ng-template>
             </ngb-tab>
 
             <ngb-tab title="Compare Company">
                 <ng-template ngbTabContent>
+                    <compare-company></compare-company>
                 </ng-template>
             </ngb-tab>
 
-            <ngb-tab title="Compare Sectors">
+            <!-- <ngb-tab title="Compare Sectors">
                 <ng-template ngbTabContent>
                 </ng-template>
-            </ngb-tab>
+            </ngb-tab> -->
         </div>
     </ngb-tabset>
 </div>

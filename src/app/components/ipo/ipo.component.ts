@@ -23,8 +23,7 @@ export class IpoComponent implements OnInit {
     private modalService: NgbModal,
     private ipoService: IpoService,
     private companyService: CompanyService,
-    private stockExchangeService: StockExchangeService,
-    private alertService: AlertService
+    private stockExchangeService: StockExchangeService
   ) { }
 
   ngOnInit() {

@@ -54,7 +54,7 @@ export class CompanyDetailsComponent implements OnInit {
         if (res.code == 0) {
           this.notifyParent.emit('success');
             this.activeModal.close('creation completed');
-            this.alertService.alert('success', `Stock exchange - ${this.companyForm.value.companyName} is created successfully.`);
+            this.alertService.alert('success', `Company - ${this.companyForm.value.companyName} is created successfully.`);
         }
       })
     } else {
@@ -62,7 +62,7 @@ export class CompanyDetailsComponent implements OnInit {
         if (res.code == 0) {
           this.notifyParent.emit('success');
             this.activeModal.close('update completed');
-            this.alertService.alert('success', `Stock exchange - ${this.companyForm.value.companyName} is updated successfully.`);
+            this.alertService.alert('success', `Company - ${this.companyForm.value.companyName} is updated successfully.`);
         }
       })
     }

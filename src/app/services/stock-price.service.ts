@@ -11,6 +11,10 @@ export class StockPriceService {
 
   constructor(private apiService: ApiService) { }
 
+  generateChartsForCompanies(body): Observable<any> {
+    return this.apiService.post(`${this.baseUrl}/charts`, body);
+  }
+
   getList(page: number, size: number): Observable<any> {
     return this.apiService.get(`${this.baseUrl}?page=${page}&size=${size}`);
   }

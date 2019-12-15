@@ -43,6 +43,8 @@ export class SignupComponent implements OnInit {
         if (res.code == 0) {
           this.alertService.alert("info", 'Confirm email is sent to your email box, please activate your account in the email.')
           this.router.navigateByUrl('/login')
+        } else {
+          this.alertService.alert("error", res.message);
         }
       })
   }

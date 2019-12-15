@@ -17,6 +17,10 @@ export class IpoService {
     return this.apiService.get(`${this.baseUrl}?page=${page}&size=${size}`);
   }
 
+  getFutureList(page: number, size: number): Observable<any> {
+    return this.apiService.get(`${this.baseUrl}/future?page=${page}&size=${size}`);
+  }
+
   create(body: any): Observable<any> {
     return this.apiService.post(this.baseUrl, body);
   }

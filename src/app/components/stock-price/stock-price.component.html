@@ -44,7 +44,7 @@
 
     <div *ngIf="uploaded">
         <h4>Summary of Upload</h4>
-        <div class="dropdown-divider"></div>
+        <hr>
         <dl class="row">
             <dt class="col-sm-3">Company Name</dt>
             <dd class="col-sm-9">{{summary.companyName}}</dd>
@@ -64,7 +64,7 @@
             <dt class="col-sm-3">Date To</dt>
             <dd class="col-sm-9">{{summary.dateTo | date:'yyyy-MM-dd HH:mm:ss'}}</dd>
         </dl>
-        <div class="dropdown-divider"></div>
+        <hr>
         <button class="btn btn-primary" (click)="uploaded = !uploaded">OK</button>
     </div>
 

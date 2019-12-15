@@ -32,6 +32,9 @@ import { IpoComponent } from './components/ipo/ipo.component';
 import { IpoDetailsComponent } from './components/ipo/ipo-details/ipo-details.component';
 import { IpoModule } from './components/ipo/ipo.module';
 import { StockPriceComponent } from './components/stock-price/stock-price.component';
+import { IpoFutureComponent } from './components/ipo-future/ipo-future.component';
+import { CompareCompanyComponent } from './components/compare-company/compare-company.component';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { StockPriceComponent } from './components/stock-price/stock-price.compon
     SectorDetailsComponent,
     IpoComponent,
     IpoDetailsComponent,
-    StockPriceComponent
+    StockPriceComponent,
+    IpoFutureComponent,
+    CompareCompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,8 @@ import { StockPriceComponent } from './components/stock-price/stock-price.compon
     StockExchangeModule,
     CompanyModule,
     SectorModule,
-    IpoModule
+    IpoModule,
+    NgxEchartsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
